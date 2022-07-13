@@ -6,9 +6,11 @@ const Contacts = () => {
   const { store, actions } = useContext(Context);
 
   const contact = store.contacts;
-
   function deleteContact(id) {
     actions.deleteContact(id);
+  }
+  function editContact(id){
+    actions.editContact(id);
   }
 
   return contact.map((items) => {
