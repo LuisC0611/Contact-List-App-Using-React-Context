@@ -29,10 +29,9 @@ const ContactCard = (props) => {
           </p>
         </div>
         <div className="editing ms-auto">
+          {/* Edit button when clicked will navigate to edit-contact view with useparam containing the id*/}
           <Link to={`/edit-contact/${props.id}`}>
-            <i
-              className="fas fa-pencil btn"
-            ></i>
+            <i className="fas fa-pencil btn"></i>
           </Link>
           <i
             onClick={() => {

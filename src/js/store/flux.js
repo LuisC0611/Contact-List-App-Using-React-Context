@@ -14,6 +14,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       .then((data) => {
         //here is were your code should start after the fetch finishes
         // console.log(data); //this will print on the console the exact object received from the server
+        //Store the data recieved from the server
         setStore({ contacts: data });
       })
       .catch((error) => {
@@ -52,7 +53,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         getActions().changeColor(0, "green");
       },
       loadSomeData: () => {
-        getData();
+        getData(); //Call fetch GET on every load
         /**
 					fetch().then().then(data => setStore({ "foo": data.bar }))
 				*/
@@ -72,11 +73,11 @@ const getState = ({ getStore, getActions, setStore }) => {
         setStore({ demo: demo });
       },
       saveContact: (newContact) => {
+        //Spread agenda slug into every object passed
         const addToContact = {
           agenda_slug: "usertest7",
           ...newContact,
         };
-        console.log("add to contact", addToContact);
 
         fetch("https://assets.breatheco.de/apis/fake/contact/", {
           method: "POST",
@@ -93,7 +94,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           .then((data) => {
             //here is were your code should start after the fetch finishes
             console.log(data); //this will print on the console the exact object received from the server
-            getData();
+            getData(); //Call fetch GET
           })
           .catch((error) => {
             //error handling
@@ -116,49 +117,12 @@ const getState = ({ getStore, getActions, setStore }) => {
           .then((data) => {
             //here is were your code should start after the fetch finishes
             console.log(data); //this will print on the console the exact object received from the server
-            getData()
+            getData();
           })
           .catch((error) => {
             //error handling
             console.log(error);
           });
-        // const edited = {
-        //   // id: "3238",
-        //   // agenda_slug: "usertest7",
-        //   // full_name: "FirstName LastName",
-        //   // email: "placeholder@gmail.com",
-        //   // phone: "1112223333",
-        //   // address: "123 Address Lane",
-        // }
-        // // const addToContact = {
-        // //   agenda_slug: "usertest7",
-        // //   ...newContact,
-        // // };
-
-
-          
-
-        // fetch(`https://assets.breatheco.de/apis/fake/contact/${id}`, {
-        //   method: "PUT",
-        //   body: JSON.stringify(),
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //   },
-        // })
-        //   .then((resp) => {
-        //     console.log(resp.ok); // will be true if the response is successfull
-        //     console.log(resp.status); // the status code = 200 or code = 400 etc.
-        //     return resp.json(); // (returns promise) will try to parse the result as json as return a promise that you can .then for results
-        //   })
-        //   .then((data) => {
-        //     //here is were your code should start after the fetch finishes
-        //     console.log(data); //this will print on the console the exact object received from the server
-        //   })
-        //   .catch((error) => {
-        //     //error handling
-        //     console.log(error);
-        //   });
-        // DELETE: /apis/fake/contact/{contact_id}
       },
       deleteContact: (id) => {
         fetch(`https://assets.breatheco.de/apis/fake/contact/${id}`, {
@@ -175,13 +139,12 @@ const getState = ({ getStore, getActions, setStore }) => {
           .then((data) => {
             //here is were your code should start after the fetch finishes
             console.log(data); //this will print on the console the exact object received from the server
-            getData();
+            getData(); //Call fetch GET
           })
           .catch((error) => {
             //error handling
             console.log(error);
           });
-        // DELETE: /apis/fake/contact/{contact_id}
       },
       deleteAllContacts: () => {
         fetch(
@@ -206,7 +169,6 @@ const getState = ({ getStore, getActions, setStore }) => {
             //error handling
             console.log(error);
           });
-        // DELETE: /apis/fake/contact/{contact_id}
       },
     },
   };

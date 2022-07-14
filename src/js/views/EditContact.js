@@ -1,6 +1,5 @@
 //Form to input contact information
-//Contact updating is delayed and take 2 submits to appear...
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { inputValues } from "../inputs.js";
 import { Context } from "../store/appContext";
@@ -9,14 +8,17 @@ import "../../styles/addcontacts.css";
 
 export const EditContact = () => {
   const { store, actions } = useContext(Context);
+
+  //grab param from weblink
   let { id } = useParams();
-  const getContact = store.contacts
 
-  const editContact = getContact.filter((contact, index)=>{
-   return contact.id === id
-  })[0]
+  const getContact = store.contacts;
+  //Filter contact and only get object containing id
+  const editContact = getContact.filter((contact, index) => {
+    return contact.id === id;
+  })[0];
 
-
+  //Populate fields with contact details
   const [textEntered, setTextEntered] = useState({
     full_name: editContact.full_name,
     address: editContact.address,

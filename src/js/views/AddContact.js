@@ -1,5 +1,4 @@
 //Form to input contact information
-//Contact updating is delayed and take 2 submits to appear...
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { inputValues } from "../inputs.js";
@@ -7,7 +6,10 @@ import { Context } from "../store/appContext";
 import "../../styles/addcontacts.css";
 
 export const AddContact = () => {
-  const { store, actions } = useContext(Context);
+  //Context to access store
+  const { actions } = useContext(Context);
+
+  //Initialize input bar text with blank string
   const [textEntered, setTextEntered] = useState({
     full_name: "",
     address: "",
@@ -24,6 +26,8 @@ export const AddContact = () => {
       };
     });
   }
+
+  //execute action with the object containing input values
   const handleSubmit = (event) => {
     event.preventDefault();
     actions.saveContact(textEntered);
@@ -54,6 +58,7 @@ export const AddContact = () => {
             </div>
           );
         })}
+        {/* Save button stores an object containing all the input values */}
         <button className="btn btn-primary input-links">Save</button>
       </form>
       <Link to="/">
