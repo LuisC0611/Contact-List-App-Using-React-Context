@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import ContactCard from "./ContactCard.jsx";
 import { Context } from "../store/appContext";
+import { EditContact } from "../views/EditContact";
 
 const Contacts = () => {
   const { store, actions } = useContext(Context);
@@ -9,14 +10,13 @@ const Contacts = () => {
   function deleteContact(id) {
     actions.deleteContact(id);
   }
-  function editContact(id){
-    actions.editContact(id);
-  }
 
-  return contact.map((items) => {
+  
+
+  return contact.map((items, index) => {
     return (
       <ContactCard
-        key={items.id}
+        key={index}
         id={items.id}
         fullname={items.full_name}
         address={items.address}

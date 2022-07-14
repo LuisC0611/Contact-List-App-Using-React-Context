@@ -1,5 +1,6 @@
 //Pass props into for contact information
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ContactCard = (props) => {
   return (
@@ -28,7 +29,11 @@ const ContactCard = (props) => {
           </p>
         </div>
         <div className="editing ms-auto">
-          <i className="fas fa-pencil btn"></i>
+          <Link to={`/edit-contact/${props.id}`}>
+            <i
+              className="fas fa-pencil btn"
+            ></i>
+          </Link>
           <i
             onClick={() => {
               props.onDelete(props.id);
