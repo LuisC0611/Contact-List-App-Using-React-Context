@@ -1,18 +1,21 @@
 .card{
     width: 90rem;
     margin: auto;
-    background-color: rgb(227, 209, 232);
+    background-color: rgb(205, 202, 206);
 }
 
 .profile-img{
     border-radius: 50%;
     width: 10rem;
     height: 10rem;
-    border: 7px solid rgb(168, 219, 141);
+    border: 7px solid rgb(214, 31, 18);
     margin-right: 20px;
 }
 
 .editing .fas{
     margin: 5px;
-    border: 1px solid rgb(218, 139, 191);
+    border: 1px solid rgb(196, 192, 194);
+}
+.btn btn-success{
+    margin-left: 20px;
 }

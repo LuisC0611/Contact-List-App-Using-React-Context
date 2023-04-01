@@ -8,7 +8,7 @@ import Contacts from "../component/Contacts.jsx";
 export const Home = () => (
   <div>
     <Link to="/contact">
-      <button className="btn btn-primary">Add New Contact</button>
+      <button className="btn btn-success float-right">Add New Contact</button>
     </Link>
     {/* Render information from Contacts component */}
     <Contacts />
